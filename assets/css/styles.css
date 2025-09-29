@@ -34,6 +34,29 @@ body {
 .nav a { color: var(--muted); margin-left: 18px; text-decoration: none; font-weight: 500; }
 .nav a:hover { color: var(--text); }
 
+.lang-switcher { display: flex; margin-left: 18px; gap: 4px; }
+.lang-btn { 
+  background: transparent; 
+  border: 1px solid var(--border); 
+  color: var(--muted); 
+  padding: 6px 10px; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  font-size: 12px; 
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.lang-btn:hover { 
+  color: var(--text); 
+  border-color: var(--brand); 
+  background: rgba(90, 169, 255, 0.1);
+}
+.lang-btn.active { 
+  background: var(--brand); 
+  color: var(--bg); 
+  border-color: var(--brand);
+}
+
 .button { display: inline-block; background: linear-gradient(90deg, var(--brand), var(--brand-2)); color: #0b0d12; padding: 10px 16px; border-radius: 10px; font-weight: 700; text-decoration: none; box-shadow: 0 8px 24px rgba(90,169,255,.25); }
 .button.small { padding: 8px 12px; font-size: 14px; }
 

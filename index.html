@@ -9,6 +9,234 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <script>
+      const translations = {
+        en: {
+          title: "Lei Lab — Virus glycoprotein evolution and antigen characterization",
+          nav: {
+            research: "Research",
+            team: "Team", 
+            gallery: "Gallery",
+            publications: "Publications",
+            resources: "Resources",
+            contact: "Contact"
+          },
+          hero: {
+            title: "Virus glycoprotein evolution and antigen characterization",
+            subtitle: "Combining deep mutational scanning, structural biology (cryoEM/X‑ray), and computational analysis to understand viral evolution and guide next‑generation antibody and vaccine design.",
+            cta: "Explore Research"
+          },
+          research: {
+            title: "Research Directions",
+            subtitle: "Experimental and computational approaches to decode and steer viral evolution",
+            pillars: {
+              dms: {
+                title: "Deep Mutational Scanning & Functional Genomics",
+                items: [
+                  "High‑throughput mutagenesis and fitness mapping",
+                  "Antigenic profiling of influenza NA/HA and SARS‑CoV‑2 Spike",
+                  "Epistasis and evolutionary contingency",
+                  "ELISA and neutralization‑adjacent assays"
+                ],
+                link: "See results"
+              },
+              structural: {
+                title: "Structural & Biophysical Characterization", 
+                items: [
+                  "cryoEM sample prep and data collection (Glacios)",
+                  "X‑ray crystallography and model refinement",
+                  "Biophysical spectroscopy and kinetics",
+                  "Protein expression and purification across systems"
+                ],
+                link: "See structures"
+              },
+              computation: {
+                title: "Computation for Design & Interpretation",
+                items: [
+                  "Protein modeling and docking; molecular dynamics",
+                  "Machine‑learning analysis of DMS data",
+                  "Predictive modeling for antibody specificity",
+                  "Python and R pipelines for data analysis"
+                ],
+                link: "Read methods"
+              }
+            }
+          },
+          team: {
+            title: "Our Team",
+            subtitle: "Experimentalists and computational scientists advancing influenza and coronavirus research",
+            pi: "Principal Investigator"
+          },
+          publications: {
+            title: "Recent Publications"
+          },
+          resources: {
+            title: "Resources",
+            subtitle: "Contact for materials upon request."
+          },
+          contact: {
+            title: "Get in Touch",
+            email: "Email",
+            location: "Location",
+            github: "GitHub"
+          },
+          footer: {
+            description: "Advancing virus evolution & virus-immune system research through structural biology and high-throughput methods.",
+            copyright: "© 2025 Lei Lab. All rights reserved."
+          }
+        },
+        zh: {
+          title: "雷实验室 — 病毒糖蛋白进化与抗原表征",
+          nav: {
+            research: "研究",
+            team: "团队",
+            gallery: "画廊", 
+            publications: "发表论文",
+            resources: "资源",
+            contact: "联系"
+          },
+          hero: {
+            title: "病毒糖蛋白进化与抗原表征",
+            subtitle: "结合深度突变扫描、结构生物学（冷冻电镜/X射线）和计算分析，理解病毒进化并指导下一代抗体和疫苗设计。",
+            cta: "探索研究"
+          },
+          research: {
+            title: "研究方向",
+            subtitle: "解码和引导病毒进化的实验与计算方法",
+            pillars: {
+              dms: {
+                title: "深度突变扫描与功能基因组学",
+                items: [
+                  "高通量突变与适应性图谱",
+                  "流感NA/HA和SARS‑CoV‑2 Spike的抗原谱分析",
+                  "上位性与进化偶然性",
+                  "ELISA和中和相关检测"
+                ],
+                link: "查看结果"
+              },
+              structural: {
+                title: "结构与生物物理表征",
+                items: [
+                  "冷冻电镜样品制备与数据收集（Glacios）",
+                  "X射线晶体学与模型精修",
+                  "生物物理光谱学与动力学",
+                  "跨系统蛋白质表达与纯化"
+                ],
+                link: "查看结构"
+              },
+              computation: {
+                title: "设计与解释计算",
+                items: [
+                  "蛋白质建模与对接；分子动力学",
+                  "DMS数据的机器学习分析",
+                  "抗体特异性预测建模",
+                  "Python和R数据分析流程"
+                ],
+                link: "阅读方法"
+              }
+            }
+          },
+          team: {
+            title: "我们的团队",
+            subtitle: "推进流感和冠状病毒研究的实验与计算科学家",
+            pi: "首席研究员"
+          },
+          publications: {
+            title: "近期发表论文"
+          },
+          resources: {
+            title: "资源",
+            subtitle: "需要材料请联系。"
+          },
+          contact: {
+            title: "联系我们",
+            email: "邮箱",
+            location: "地址",
+            github: "GitHub"
+          },
+          footer: {
+            description: "通过结构生物学和高通量方法推进病毒进化与病毒-免疫系统研究。",
+            copyright: "© 2025 雷实验室。保留所有权利。"
+          }
+        }
+      };
+
+      let currentLang = localStorage.getItem('lang') || 'en';
+      
+      function switchLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('lang', lang);
+        updateContent();
+      }
+      
+      function updateContent() {
+        const t = translations[currentLang];
+        
+        // Update language button states
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(`lang-${currentLang}`).classList.add('active');
+        
+        // Update title
+        document.title = t.title;
+        
+        // Update navigation
+        document.querySelectorAll('.nav a').forEach((el, i) => {
+          const keys = ['research', 'team', 'gallery', 'publications', 'resources', 'contact'];
+          if (keys[i]) el.textContent = t.nav[keys[i]];
+        });
+        
+        // Update hero section
+        document.querySelector('.hero h1').textContent = t.hero.title;
+        document.querySelector('.hero .lead').textContent = t.hero.subtitle;
+        document.querySelector('.hero-ctas .button').textContent = t.hero.cta;
+        
+        // Update research section
+        document.querySelector('#research h2').textContent = t.research.title;
+        document.querySelector('#research .section-intro').textContent = t.research.subtitle;
+        
+        // Update research pillars
+        const pillarTitles = document.querySelectorAll('.card h3');
+        const pillarItems = document.querySelectorAll('.card ul');
+        const pillarLinks = document.querySelectorAll('.card-link');
+        
+        pillarTitles[0].textContent = t.research.pillars.dms.title;
+        pillarTitles[1].textContent = t.research.pillars.structural.title;
+        pillarTitles[2].textContent = t.research.pillars.computation.title;
+        
+        pillarItems[0].innerHTML = t.research.pillars.dms.items.map(item => `<li>${item}</li>`).join('');
+        pillarItems[1].innerHTML = t.research.pillars.structural.items.map(item => `<li>${item}</li>`).join('');
+        pillarItems[2].innerHTML = t.research.pillars.computation.items.map(item => `<li>${item}</li>`).join('');
+        
+        pillarLinks[0].textContent = t.research.pillars.dms.link;
+        pillarLinks[1].textContent = t.research.pillars.structural.link;
+        pillarLinks[2].textContent = t.research.pillars.computation.link;
+        
+        // Update team section
+        document.querySelector('#team h2').textContent = t.team.title;
+        document.querySelector('#team .section-intro').textContent = t.team.subtitle;
+        document.querySelector('.profile .role').textContent = t.team.pi;
+        
+        // Update publications
+        document.querySelector('#publications h2').textContent = t.publications.title;
+        
+        // Update resources
+        document.querySelector('#resources h2').textContent = t.resources.title;
+        document.querySelector('#resources .section-intro').textContent = t.resources.subtitle;
+        
+        // Update contact
+        document.querySelector('#contact h2').textContent = t.contact.title;
+        document.querySelectorAll('.contact-grid h3').forEach((el, i) => {
+          const keys = ['email', 'location', 'github'];
+          if (keys[i]) el.textContent = t.contact[keys[i]];
+        });
+        
+        // Update footer
+        document.querySelector('.site-footer p').textContent = t.footer.description;
+        document.querySelector('.copyright').textContent = t.footer.copyright;
+      }
+      
+      document.addEventListener('DOMContentLoaded', updateContent);
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -23,6 +251,10 @@
           <a href="#publications">Publications</a>
           <a href="#resources">Resources</a>
           <a href="#contact" class="button small">Contact</a>
+          <div class="lang-switcher">
+            <button onclick="switchLanguage('en')" class="lang-btn" id="lang-en">EN</button>
+            <button onclick="switchLanguage('zh')" class="lang-btn" id="lang-zh">中文</button>
+          </div>
         </nav>
       </div>
     </header>
