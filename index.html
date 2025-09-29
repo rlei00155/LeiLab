@@ -169,12 +169,19 @@
         updateContent();
       }
       
+      function toggleLanguage() {
+        const toggle = document.getElementById('lang-toggle');
+        currentLang = toggle.checked ? 'zh' : 'en';
+        localStorage.setItem('lang', currentLang);
+        updateContent();
+      }
+      
       function updateContent() {
         const t = translations[currentLang];
         
-        // Update language button states
-        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-        document.getElementById(`lang-${currentLang}`).classList.add('active');
+        // Update language toggle state
+        const toggle = document.getElementById('lang-toggle');
+        if (toggle) toggle.checked = currentLang === 'zh';
         
         // Update title
         document.title = t.title;
@@ -252,8 +259,12 @@
           <a href="#resources">Resources</a>
           <a href="#contact" class="button small">Contact</a>
           <div class="lang-switcher">
-            <button onclick="switchLanguage('en')" class="lang-btn" id="lang-en">EN</button>
-            <button onclick="switchLanguage('zh')" class="lang-btn" id="lang-zh">中文</button>
+            <span class="lang-label">EN</span>
+            <label class="switch">
+              <input type="checkbox" id="lang-toggle" onchange="toggleLanguage()">
+              <span class="slider"></span>
+            </label>
+            <span class="lang-label">中文</span>
           </div>
         </nav>
       </div>
@@ -333,11 +344,11 @@
             <div class="stat-label">Research Pillars</div>
           </div>
           <div class="stat">
-            <div class="stat-number">AI-Driven</div>
+            <div class="stat-number">Evolutionary biochemistry & Structural virology</div>
             <div class="stat-label">Approach</div>
           </div>
           <div class="stat">
-            <div class="stat-number">High-Throughput</div>
+            <div class="stat-number">High-Throughput screening & Structural biology</div>
             <div class="stat-label">Methods</div>
           </div>
         </div>
