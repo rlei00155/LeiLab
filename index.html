@@ -13,10 +13,9 @@
       const translations = {
         en: {
           title: "Lei Lab — Virus glycoprotein evolution and antigen characterization",
-          nav: {
+            nav: {
             research: "Research",
             team: "Team", 
-            gallery: "Gallery",
             publications: "Publications",
             resources: "Resources",
             contact: "Contact"
@@ -87,10 +86,9 @@
         },
         zh: {
           title: "雷实验室 — 病毒糖蛋白进化与抗原表征",
-          nav: {
+            nav: {
             research: "研究",
             team: "团队",
-            gallery: "画廊", 
             publications: "发表论文",
             resources: "资源",
             contact: "联系"
@@ -188,7 +186,7 @@
         
         // Update navigation
         document.querySelectorAll('.nav a').forEach((el, i) => {
-          const keys = ['research', 'team', 'gallery', 'publications', 'resources', 'contact'];
+          const keys = ['research', 'team', 'publications', 'resources', 'contact'];
           if (keys[i]) el.textContent = t.nav[keys[i]];
         });
         
@@ -254,7 +252,6 @@
         <nav class="nav">
           <a href="#research">Research</a>
           <a href="#team">Team</a>
-          <a href="#gallery">Gallery</a>
           <a href="#publications">Publications</a>
           <a href="#resources">Resources</a>
           <a href="#contact" class="button small">Contact</a>
@@ -373,38 +370,6 @@
         </div>
       </section>
 
-      <section id="gallery" class="section alt">
-        <div class="container">
-          <h2>Gallery</h2>
-          <div class="gallery-grid">
-            <figure>
-              <div class="img ph"></div>
-              <figcaption>Micro-Pianists</figcaption>
-            </figure>
-            <figure>
-              <div class="img ph"></div>
-              <figcaption>Phage Sentinel</figcaption>
-            </figure>
-            <figure>
-              <div class="img ph"></div>
-              <figcaption>Cavern of Virions</figcaption>
-            </figure>
-            <figure>
-              <div class="img ph"></div>
-              <figcaption>Molecular Night</figcaption>
-            </figure>
-            <figure>
-              <div class="img ph"></div>
-              <figcaption>Vaccination</figcaption>
-            </figure>
-            <figure>
-              <div class="img ph"></div>
-              <figcaption>Reshaping Antibody</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
       <section id="publications" class="section">
         <div class="container">
           <h2>Recent Publications</h2>
@@ -427,14 +392,14 @@
               <div class="cover ph"></div>
               <div class="pub-info">
                 <div class="venue">Nature Communications, 2024</div>
-                <h3><a href="https://doi.org/10.1038/s41467-024-49418-3" target="_blank" rel="noopener noreferrer">Epistasis mediates the evolution of the receptor binding mode in recent human H3N2 hemagglutinin</a></h3>
+                <h3><a href="https://www.nature.com/articles/s41467-024-51750-0" target="_blank" rel="noopener noreferrer">Epistasis mediates the evolution of the receptor binding mode in recent human H3N2 hemagglutinin</a></h3>
               </div>
             </article>
             <article class="pub">
               <div class="cover ph"></div>
               <div class="pub-info">
                 <div class="venue">Nature Communications, 2024</div>
-                <h3><a href="https://doi.org/10.1038/s41467-024-48520-8" target="_blank" rel="noopener noreferrer">Functional and antigenic characterization of SARS‑CoV‑2 spike fusion peptide by deep mutational scanning</a></h3>
+                <h3><a href="https://www.nature.com/articles/s41467-024-40560-0" target="_blank" rel="noopener noreferrer">Functional and antigenic characterization of SARS‑CoV‑2 spike fusion peptide by deep mutational scanning</a></h3>
               </div>
             </article>
             <article class="pub">
