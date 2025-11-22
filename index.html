@@ -67,7 +67,8 @@
             pi: "Principal Investigator"
           },
           publications: {
-            title: "Recent Publications"
+            title: "Recent Publications",
+            more: "More"
           },
           resources: {
             title: "Resources",
@@ -140,7 +141,8 @@
             pi: "首席研究员"
           },
           publications: {
-            title: "近期发表论文"
+            title: "近期发表论文",
+            more: "更多"
           },
           resources: {
             title: "资源",
@@ -222,7 +224,13 @@
         document.querySelector('.profile .role').textContent = t.team.pi;
         
         // Update publications
-        document.querySelector('#publications h2').textContent = t.publications.title;
+        const pubTitle = document.querySelector('#publications h2');
+        if (pubTitle) pubTitle.textContent = t.publications.title;
+        const moreLink = document.getElementById('more-publications');
+        if (moreLink) {
+          const arrow = moreLink.textContent.includes('→') ? ' →' : ' →';
+          moreLink.textContent = t.publications.more + arrow;
+        }
         
         // Update resources
         document.querySelector('#resources h2').textContent = t.resources.title;
@@ -372,7 +380,10 @@
 
       <section id="publications" class="section">
         <div class="container">
-          <h2>Recent Publications</h2>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px;">
+            <h2 style="margin: 0;">Recent Publications</h2>
+            <a href="https://scholar.google.com/citations?hl=en&user=cyXTY8YAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer" class="more-link" id="more-publications">More →</a>
+          </div>
           <div class="pubs">
             <article class="pub">
               <div class="cover ph" style="background: linear-gradient(135deg, #1e88e5, #1565c0); display:flex; flex-direction:column; justify-content:center; align-items:center; color:white; font-weight:bold; text-align:center; padding:10px;">
